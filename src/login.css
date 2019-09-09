@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.backgroundSign{
+    background-image: url('https://i.ibb.co/3Fp0VCK/cute-colour-combo.jpg');
+    text-align: center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+}
+.titleWindowSign{
+    font-family:'Playfair Display SC', serif;
+    font-size: 50px;
+}
+.inputSign{
+    text-align: center;
+    
+}
+.buttonSign{
+    text-align: center;
+}
+
