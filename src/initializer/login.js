@@ -3,24 +3,14 @@ import firebase from "firebase";
 
 
 class Login extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {email:'',password:''};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-   SignInUserRegister = () =>{
-     firebase.auth().signInWithEmailAndPassword(email, password).catch= () =>{
-
-     }
-   }
+ 
    render(){
     return (
       <div className = 'backgroundSign'>
            <h1 className = 'titleWindowSign'>My Notes</h1>
            <form>
-           <input type='text' className ='inputSign' placeholder = 'Email'/>
-           <input type='password' className ='inputSign' placeholder = 'Password'/>
+           <input id='email' type='text' className ='inputSign' placeholder = 'Email'/>
+           <input id='password' type='password' className ='inputSign' placeholder = 'Password'/>
            <button>Sign Up </button>
            <button>Forgot Password</button>
    
