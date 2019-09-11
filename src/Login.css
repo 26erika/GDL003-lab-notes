@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.backgroundSign{
+    background-image: url('https://i.ibb.co/3Fp0VCK/cute-colour-combo.jpg');
+    text-align: center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 35%;
+}
+.titleWindowSign{
+    font-family:'Playfair Display SC', serif;
+    font-size: 50px;
+    padding-top: 20%;
+    padding-bottom: 25%;
+    font-weight: lighter;
+}
+input{
+    text-align: center;
+    border-color: transparent;
+    font-size: 150%;
+    margin-bottom: 10%;
+    font-family:'Playfair Display SC', serif;
+    color: black;
+    border-bottom-color: #f9c0b5;
+}
+.buttonSign{
+    margin-bottom: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 10%;
+    color: black;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 100%;
+}
+
