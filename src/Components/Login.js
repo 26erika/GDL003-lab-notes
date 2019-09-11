@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import {Link} from 'react-router-dom';
 import fire from '../Initializer/Firebase';
 
 
@@ -26,17 +25,29 @@ class Login extends Component {
     login(e) {
       e.preventDefault();
       fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+        console.log(this.state.email, this.state.password);
+        
       }).catch((error) => {
           console.log(error);
         });
     }
   
     signup(e){
+      console.log(this.state.email)
       e.preventDefault();
       fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+        console.log(u)
         fire.auth().currentUser.sendEmailVerification();
-      }).then((u)=>{console.log(u)})
+      }).then((u)=>{
+        fire.auth().onAuthStateChanged((user)=>{
+          if(user){
+            console.log(user);
+            
+          }
+        })
+      })
       .catch((error) => {
+        console.log(error)
         })
     }
     resetPassword(e){
