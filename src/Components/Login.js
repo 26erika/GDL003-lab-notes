@@ -10,6 +10,7 @@ class Login extends Component {
     this.signup = this.signup.bind(this);
     this.resetPassword = this.resetPassword.bind(this);
     this.state ={
+      name:'',
       email:'',
       password: '',
     }
@@ -25,26 +26,19 @@ class Login extends Component {
     login(e) {
       e.preventDefault();
       fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-        console.log(this.state.email, this.state.password);
+        console.log(this.state.email, this.state.password, this.state.name);
         
       }).catch((error) => {
           console.log(error);
         });
     }
-  
+    
     signup(e){
       console.log(this.state.email)
       e.preventDefault();
       fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         console.log(u)
         fire.auth().currentUser.sendEmailVerification();
-      }).then((u)=>{
-        fire.auth().onAuthStateChanged((user)=>{
-          if(user){
-            console.log(user);
-            
-          }
-        })
       })
       .catch((error) => {
         console.log(error)
@@ -58,12 +52,16 @@ class Login extends Component {
         alert("Error");
       });
     }
+
     
    render(){
     return (
       <div className = 'backgroundSign'>
            <h1 className = 'titleWindowSign'>My Notes</h1>
            <form onSubmit={this.handleSubmit}>
+           <div>
+             <input value={this.state.name} onChange={this.handleChange} type="text" name="name" className="form-control" id="name" placeholder="Enter Name" />
+             </div>
              <div>
              <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="email" placeholder="Enter email" />
              </div>
