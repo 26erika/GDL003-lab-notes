@@ -13,15 +13,15 @@
 .titleWindowSign{
     font-family:'Playfair Display SC', serif;
     font-size: 50px;
-    padding-top: 20%;
-    padding-bottom: 25%;
+    padding-top: 12%;
+    padding-bottom: 5%;
     font-weight: bold;
 }
 input{
     text-align: center;
     border-color: transparent;
     font-size: 150%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     font-family:'Playfair Display SC', serif;
     color: black;
     border-bottom-color: #f9c0b5;
@@ -30,7 +30,7 @@ input{
     margin-bottom: 5%;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: 10%;
+    margin-top: 5%;
     color: black;
     font-family: 'Playfair Display SC', serif;
     font-size: 100%;

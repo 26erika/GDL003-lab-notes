@@ -12,4 +12,5 @@ import firebase from 'firebase';
   const fire = firebase.initializeApp(config);
   //const db = firebase.firestore(fire);
   
-  export default {fire/*,db*/};
+  //export default {fire,db};
+  export default fire;

@@ -5,9 +5,9 @@ import fire from '../Initializer/Firebase';
 class Login extends Component {
   constructor(props){
     super(props);
-    this.login = this.login.bind(this);
+    this.signIn = this.signIn.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.signup = this.signup.bind(this);
+    this.signUp = this.signUp.bind(this);
     this.resetPassword = this.resetPassword.bind(this);
     this.state ={
       name:'',
@@ -23,7 +23,7 @@ class Login extends Component {
       console.log(this.state);
             
     }
-    login(e) {
+    signIn(e) {
       e.preventDefault();
       fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         console.log(this.state.email, this.state.password, this.state.name);
@@ -33,7 +33,7 @@ class Login extends Component {
         });
     }
     
-    signup(e){
+    signUp(e){
       console.log(this.state.email)
       e.preventDefault();
       fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
@@ -46,7 +46,7 @@ class Login extends Component {
     }
     resetPassword(e){
       e.preventDefault();
-      fire.auth().sendPasswordResetEmail(this.state.email, this.state.password = !this.state.password).then((u) => {
+      fire.auth().sendPasswordResetEmail(this.setState.email, this.setState.password = !this.setState.password).then((u) => {
         alert("El correo de verificación se ha enviado");
       }).catch(() => {
         alert("Error");
@@ -68,8 +68,8 @@ class Login extends Component {
              <div>
              <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="password" placeholder="Password" />
              </div>
-           <button className='buttonSign' type= 'submit' onClick={this.login}>Sign In</button>
-           <button className='buttonSign' type= 'submit' onClick={this.signup}>Sign Up </button>
+           <button className='buttonSign' type= 'submit' onClick={this.signIn}>Sign In</button>
+           <button className='buttonSign' type= 'submit' onClick={this.signUp}>Sign Up </button>
            <button className='buttonSign' onClick={this.resetPassword}>Forgot Password</button>
    
            </form>

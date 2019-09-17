@@ -36,7 +36,7 @@ componentDidMount(){
       <BrowserRouter>
       <div>
      
-      {this.state.user?  ( <Home/>) : (<Login />)}
+      {this.state.user ?  ( <Home/>) : (<Login />)}
        
         
       </div>

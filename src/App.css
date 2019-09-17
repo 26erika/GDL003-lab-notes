@@ -81,7 +81,7 @@ ul li{
     text-decoration: none;
     display: block;
   }
-  .nav>ul>li{
+  .nav>ul>li {
     float: left;
   }
   .nav li ul{
