@@ -1,42 +1,47 @@
-/*import React, { Component } from 'react';
-import db from '../Initializer/Firestore';
+import React, { Component } from 'react';
+import firebase from '../Initializer/Firebase';
 
-class NewNote extends Component {
+class NewNote extends React.Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.saveNote = this.saveNote.bind(this);
         this.state = {
             Title: '',
             Note: '',
         }
     }
-
-    saveNote =() =>{
-		const{title, note} = this.state;
-		let date = new Date().toLocaleDateString();
-		let hour= new Date().toLocaleTimeString();
-		
-		db.collection('user').add({
-		  Title: title,
-		  Note: note,
-		  Date: date +' '+hour, 
-		}).then(()=>{
-		  console.log('The note is add')
-		}).catch(()=>{
-		  console.log('err')
-		})
-	  }
+    handleChange(event){
+      this.setState({ [event.target.name]: event.target.value });    }
+    componentWillMount(){
+     
+    }
+ saveNote =(event) =>{
+        event.preventDefault();
+        console.log("title", this.state.title);
+    firebase.db.collection("user").add({
+      title: this.state.title,
+      note: this.state.note
+    })
+    this.setState({
+      title:"",
+      note:""
+    })
+    }
+      
+  
 
     render() {
         return (
             <div>
-                <form className='note' onSubmit={this.handleSubmit}>
-                    <input value={this.state.Title} onChange={this.handleChange} type='text' name='title' placeholder='Title' />
-                    <input value={this.state.Note} onChange={this.handleChange} type='text' name='note' placeholder='What do think...?' />
-                    <button type='submit' onClick={this.notes}>Save</button>
-                </form>
+              <form className='note' >
+                <input value={this.title} onChange={this.handleChange} type='text' name='title' className="form-control" id='title' placeholder='Title' />
+                <input value={this.note} onChange={this.handleChange} type='text' name='note' className="form-control" id='note' placeholder='What do think...?' />
+                <button type="button" onClick={this.saveNote}>Save</button>
+              </form>
             </div>
         )
     }
 }
-export default NewNote;*/
+export default NewNote;
 

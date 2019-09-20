@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import fire from '../Initializer/Firebase';
+import firebase from '../Initializer/Firebase';
 
 
 class Login extends Component {
@@ -25,7 +25,7 @@ class Login extends Component {
     }
     signIn(e) {
       e.preventDefault();
-      fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+      firebase.fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         console.log(this.state.email, this.state.password, this.state.name);
         
       }).catch((error) => {
@@ -36,9 +36,9 @@ class Login extends Component {
     signUp(e){
       console.log(this.state.email)
       e.preventDefault();
-      fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+      firebase.fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
         console.log(u)
-        fire.auth().currentUser.sendEmailVerification();
+        firebase.fire.auth().currentUser.sendEmailVerification();
       })
       .catch((error) => {
         console.log(error)
@@ -46,7 +46,7 @@ class Login extends Component {
     }
     resetPassword(e){
       e.preventDefault();
-      fire.auth().sendPasswordResetEmail(this.setState.email, this.setState.password = !this.setState.password).then((u) => {
+      firebase.fire.auth().sendPasswordResetEmail(this.setState.email, this.setState.password = !this.setState.password).then((u) => {
         alert("El correo de verificación se ha enviado");
       }).catch(() => {
         alert("Error");
