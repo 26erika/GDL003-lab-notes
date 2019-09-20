@@ -7,14 +7,23 @@
   background-size: 100%;
   width: 100%;
   height: 100%;
-  padding-bottom: 35%;
+  padding-bottom: 10%;
   display: flex;
   flex-direction: column;
+}
+.homeTitle{
+  font-family: 'Patrick Hand';
+  font-size: 300%;
+  display: flex;
+  justify-content: center;
+  background-color: #f1eee5;
+  margin-top: 5%;
+  margin-bottom: -5%;
 }
 .nav{
   margin: auto;
   width: 100%;
-  font-family: 'Playfair Display SC', serif;
+  font-family: 'Playfair Display SC';
   font-size: 120%;
   display: flex;
   justify-content: center;
@@ -46,14 +55,51 @@ ul li{
   justify-content: center;
 }
 .note{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 0%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  background-color: white;
+  margin-bottom: -5%;
+}
+.allNotes{
+  font-family: 'Patrick Hand';
+  font-size: 200%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.buttonAllNotes{
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 5%;
   width: 30%;
-  font-family: 'Playfair Display SC', serif;
+  color: black;
+  font-family: 'Patrick Hand';
   font-size: 80%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  
+}
+#title{
+  font-family: 'Patrick Hand';
+  font-size: 200%;
+}
+#note{
+  font-family: 'Patrick Hand';
+  font-size: 150%;
+}
+.buttonSaveNote{
+  background-color: transparent;
+  font-family: 'Patrick Hand';
+  font-size: 150%;
 }
 @media screen and (max-width:620px){
   .backgroundHome{
@@ -91,9 +137,36 @@ ul li{
   }
   .nav li:hover >ul{
     display: block;
-  }.imageHome{
+  }
+  .imageHome{
     margin-top: 10%;
     display: flex;
     justify-content: center;
+  }
+  .note{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: white;
+  }
+  #title{
+    font-family: 'Patrick Hand';
+    font-size: 100%;
+  }
+  #note{
+    font-family: 'Patrick Hand';
+    font-size: 100%;
+  }
+  .buttonSaveNote{
+    background-color: transparent;
+    font-family: 'Patrick Hand';
+    font-size: 100%;
   }
 }

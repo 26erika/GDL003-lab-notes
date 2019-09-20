@@ -5,35 +5,36 @@ import firebase from '../Initializer/Firebase';
 class MyNotes extends Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
         this.state = {
-        title: '',
-        note: '',
+        notes:[]
       }
  
     }
-    handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
-      }
-      addNote = e => {
-        e.preventDefault();
-        firebase.db.collection("user").add({
-          title: this.state.title,
-          note: this.state.note
-        })
-        this.setState({
-          title:"",
-          note:""
+      componentDidMount(){
+        firebase.db.collection("user").get()
+        .then(querySnapshot => {
+          const data = querySnapshot.docs.map(doc =>
+            doc.data());
+            console.log(data);
+            this.setState({notes:data}) 
         })
       }
+      
     render() {
+      const {notes}= this.state;
         return (
-            <div>
-            <form className='note' onSubmit={this.addNote}>
-                <input type='text' id='title' placeholder='Title' onChange={this.handleChange} value={this.state.title}/>
-                <input type='text' id='note' placeholder='What do think...?' onChange={this.handleChange} value={this.state.note}/>
-                <button type='button' onChange={this.addNote}>Save</button>
-            </form>
+            <div className='backgroundHome'>
+              {notes.map(user =>(
+                <div className='note' key={user.uid}>
+                  <div className='allNotes'>
+                  <h6>{user.date +"     " + " "}{user.hour}</h6>
+                  <h2>{user.title}</h2>
+                  <h4>{user.note}</h4>
+                  <button className='buttonAllNotes'>Edit</button>
+                  <button className='buttonAllNotes'>Delete</button>
+                  </div>
+                </div>
+              ))}
         </div>
         )
     }
