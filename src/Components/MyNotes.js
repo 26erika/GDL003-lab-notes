@@ -6,7 +6,10 @@ class MyNotes extends Component {
   constructor(props) {
     super(props);
     this.deleteNote = this.deleteNote.bind(this);
+    this.editNote = this.editNote.bind(this);
     this.state = {
+      title: '',
+      note: '',
       notes: []
     }
 
@@ -14,7 +17,7 @@ class MyNotes extends Component {
   componentDidMount() {
     firebase.db.collection("user").get()
       .then(querySnapshot => {
-        const data = querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id}));
+        const data = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
         this.setState({ notes: data })
       })
   }
@@ -29,6 +32,21 @@ class MyNotes extends Component {
         console.log("The Note has not deleted");
       });
   }
+  editNote = (id) => {
+    firebase.db.collection("user").doc(id).update({
+      title: this.state.title,
+      note: this.state.note,
+      date: new Date().toLocaleDateString(),
+      hour: new Date().toLocaleTimeString(),
+    })
+    this.setState({
+      title: "",
+      note: "",
+      date: new Date().toLocaleDateString(),
+      hour: new Date().toLocaleTimeString(),
+    })
+
+  }
 
   render() {
     const { notes } = this.state;
@@ -40,7 +58,7 @@ class MyNotes extends Component {
               <h6>{user.date + "  " + "  "}{user.hour}</h6>
               <h2>{user.title}</h2>
               <h4>{user.note}</h4>
-              <button className='buttonAllNotes' type="button">Edit</button>
+              <button className='buttonAllNotes' type="button" onClick={() => this.editNote(user.id)} key={user.uid}>Edit</button>
               <button className='buttonAllNotes' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}>Delete</button>
             </div>
           </div>
