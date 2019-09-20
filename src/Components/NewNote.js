@@ -5,7 +5,7 @@ class NewNote extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.saveNote = this.saveNote.bind(this);
+    //this.saveNote = this.saveNote.bind(this);
     this.state = {
       title: '',
       note: '',

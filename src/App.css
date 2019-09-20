@@ -72,8 +72,12 @@ ul li{
   font-family: 'Patrick Hand';
   font-size: 200%;
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+.allNotes>h2{
+  text-decoration-line: underline;
+  text-decoration-color: #f9c0b5;
 }
 .buttonAllNotes{
   margin-left: 2%;
@@ -168,5 +172,29 @@ ul li{
     background-color: transparent;
     font-family: 'Patrick Hand';
     font-size: 100%;
+  }
+  .allNotes{
+    font-family: 'Patrick Hand';
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .allNotes>h2{
+    text-decoration-line: underline;
+    text-decoration-color: #f9c0b5;
+  }
+  .buttonAllNotes{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 5%;
+    width: 30%;
+    color: black;
+    font-family: 'Patrick Hand';
+    font-size: 80%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    
   }
 }
