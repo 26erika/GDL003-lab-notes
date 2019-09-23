@@ -56,8 +56,8 @@ class MyNotes extends Component {
           <div className='note' key={user.uid}>
             <div className='allNotes'>
               <h6>{user.date + "  " + "  "}{user.hour}</h6>
-              <h2>{user.title}</h2>
-              <h4>{user.note}</h4>
+              <input value= {user.title}/>
+              <input value= {user.note}/>
               <button className='buttonAllNotes' type="button" onClick={() => this.editNote(user.id)} key={user.uid}>Edit</button>
               <button className='buttonAllNotes' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}>Delete</button>
             </div>
