@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import firebase from '../Initializer/Firebase';
 
 class NewNote extends Component {
@@ -29,6 +30,7 @@ class NewNote extends Component {
       date: new Date().toLocaleDateString(),
       hour: new Date().toLocaleTimeString(),
     })
+    this.props.history.push('/my-notes')
   }
 
 
@@ -45,5 +47,5 @@ class NewNote extends Component {
     )
   }
 }
-export default NewNote;
+export default withRouter (NewNote);
 

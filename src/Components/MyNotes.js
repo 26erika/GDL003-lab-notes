@@ -45,10 +45,10 @@ class MyNotes extends Component {
           <div className='note' key={user.uid}>
             <div className='allNotes'>
               <h6>Date: {user.date} Hour: {user.hour}</h6>
-              <input value= {user.title} onChange={(event) => (this.setState({title:event.target.value}))}/>
-              <input value= {user.note} onChange={(event) => (this.setState({note:event.target.value}))}/>
-              <button className='buttonAllNotes' type="button" onClick={() => this.editNote(user.id)} key={user.uid}>Edit</button>
-              <button className='buttonAllNotes' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}>Delete</button>
+              <input placeholder= {user.title} onChange={(event) => (this.setState({title:event.target.value}))}/>
+              <input placeholder= {user.note} onChange={(event) => (this.setState({note:event.target.value}))}/>
+              <button className='buttonAllNotes' type="button" onClick={() => this.editNote(user.id)} key={user.uid}><i className="material-icons">edit</i></button>
+              <button className='buttonAllNotes' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}><i className="material-icons">delete</i></button>
             </div>
           </div>
         ))}
