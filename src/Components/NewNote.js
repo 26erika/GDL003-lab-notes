@@ -14,14 +14,9 @@ class NewNote extends Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  componentWillMount() {
-
-  }
-  saveNote = (event) => {
-    event.preventDefault();
-    console.log("title", this.state.title);
-    console.log("note", this.state.note);
-
+  
+  saveNote = () => {
+    
     firebase.db.collection("user").add({
       title: this.state.title,
       note: this.state.note,

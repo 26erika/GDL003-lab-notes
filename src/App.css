@@ -10,6 +10,7 @@
   padding-bottom: 10%;
   display: flex;
   flex-direction: column;
+  
 }
 .homeTitle{
   font-family: 'Patrick Hand';
@@ -71,7 +72,7 @@ ul li{
 }
 .allNotes{
   font-family: 'Patrick Hand';
-  font-size: 200%;
+  font-size: 150%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -79,6 +80,16 @@ ul li{
 .allNotes>h2{
   text-decoration-line: underline;
   text-decoration-color: #f9c0b5;
+}
+.backgroundNewNote{
+  background-image: url('https://i.ibb.co/5kBNQBd/i-Phone-wallpaper.jpg');
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .buttonAllNotes{
   margin-left: 2%;
@@ -181,6 +192,7 @@ ul li{
     justify-content: center;
     flex-direction: column;
   }
+  
   .allNotes>h2{
     text-decoration-line: underline;
     text-decoration-color: #f9c0b5;

@@ -5,8 +5,6 @@ import firebase from '../Initializer/Firebase';
 class MyNotes extends Component {
   constructor(props) {
     super(props);
-    this.deleteNote = this.deleteNote.bind(this);
-    this.editNote = this.editNote.bind(this);
     this.state = {
       title: '',
       note: '',
@@ -22,14 +20,11 @@ class MyNotes extends Component {
       })
   }
   deleteNote = (id) => {
-    console.log("id", id);
     firebase.db.collection("user").doc(id).delete().then((data) => {
-      console.log('data', data);
-      console.log('The note has been deleted!');
+      alert('The note has been deleted!');
     })
       .catch((error) => {
-        console.log(error)
-        console.log("The Note has not deleted");
+        alert("The Note has not deleted");
       });
   }
   editNote = (id) => {
@@ -39,25 +34,19 @@ class MyNotes extends Component {
       date: new Date().toLocaleDateString(),
       hour: new Date().toLocaleTimeString(),
     })
-    this.setState({
-      title: "",
-      note: "",
-      date: new Date().toLocaleDateString(),
-      hour: new Date().toLocaleTimeString(),
-    })
 
   }
 
   render() {
     const { notes } = this.state;
     return (
-      <div className='backgroundHome'>
+      <div className='backgroundNewNote'>
         {notes.map(user => console.log(user) || (
           <div className='note' key={user.uid}>
             <div className='allNotes'>
-              <h6>{user.date + "  " + "  "}{user.hour}</h6>
-              <input value= {user.title}/>
-              <input value= {user.note}/>
+              <h6>Date: {user.date} Hour: {user.hour}</h6>
+              <input value= {user.title} onChange={(event) => (this.setState({title:event.target.value}))}/>
+              <input value= {user.note} onChange={(event) => (this.setState({note:event.target.value}))}/>
               <button className='buttonAllNotes' type="button" onClick={() => this.editNote(user.id)} key={user.uid}>Edit</button>
               <button className='buttonAllNotes' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}>Delete</button>
             </div>
