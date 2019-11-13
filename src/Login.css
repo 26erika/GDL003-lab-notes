@@ -1,9 +1,9 @@
-*{
+/*{
     margin: 0;
     padding: 0;
 }
 .backgroundSign{
-    background-image: url('https://i.ibb.co/ctzSjsD/Aranza-Drive.jpg');
+    
     text-align: center;
     background-size: 100%;
     width: 100%;
@@ -35,4 +35,4 @@ input{
     font-family: 'Patrick Hand';
     font-size: 100%;
 }
-
+*/

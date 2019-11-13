@@ -36,12 +36,13 @@ class Login extends Component {
     signUp(e){
       console.log(this.state.email)
       e.preventDefault();
-      firebase.fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-        console.log(u)
+      firebase.fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(()=>{
+        
         firebase.fire.auth().currentUser.sendEmailVerification();
       })
       .catch((error) => {
-        console.log(error)
+        alert(error, 'Error')
         })
     }
     resetPassword(e){
@@ -56,24 +57,22 @@ class Login extends Component {
     
    render(){
     return (
-      <div className = 'backgroundSign'>
-           <h1 className = 'titleWindowSign'>My Notes</h1>
-           <form onSubmit={this.handleSubmit}>
-           <div>
-             <input value={this.state.name} onChange={this.handleChange} type="text" name="name" className="form-control" id="name" placeholder="Enter Name" />
-             </div>
-             <div>
-             <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="email" placeholder="Enter email" />
-             </div>
-             <div>
-             <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="password" placeholder="Password" />
-             </div>
-           <button className='buttonSign' type= 'submit' onClick={this.signIn}>Sign In</button>
-           <button className='buttonSign' type= 'submit' onClick={this.signUp}>Sign Up </button>
-           <button className='buttonSign' onClick={this.resetPassword}>Forgot Password</button>
-   
-           </form>
-           
+      <div className = 'login'>
+          <h1 className = 'titleWindowSign'>My Notes</h1>
+            <form onSubmit={this.handleSubmit}>
+              <div>
+                <input value={this.state.name} onChange={this.handleChange} type="text" name="name" className="form-login" placeholder="Enter Name" />
+              </div>
+              <div>
+                <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-login" placeholder="Enter Email" />
+              </div>
+              <div>
+                <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-login" placeholder="Password" />
+              </div>
+                <button className='buttonSign' type= 'submit' onClick={this.signIn}>Sign In</button>
+                <button className='buttonSign' type= 'submit' onClick={this.signUp}>Sign Up </button>
+                <button className='buttonSign' onClick={this.resetPassword}>Forgot Password</button>
+           </form> 
       </div>
        );
    }

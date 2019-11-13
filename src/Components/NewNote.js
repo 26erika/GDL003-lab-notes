@@ -37,12 +37,16 @@ class NewNote extends Component {
 
   render() {
     return (
-      <div className='backgroundHome'>
+      <div className='backgroundNewNote'>
         <form className='note' >
-          <input value={this.title} onChange={this.handleChange} type='text' name='title' className="form-control" id='title' placeholder='Title' />
-          <input value={this.note} onChange={this.handleChange} type='text' name='note' className="form-control" id='note' placeholder='What do think...?' />
+          <input value={this.title} onChange={this.handleChange} type='text' name='title' className="form-new-note" id='title' placeholder='Title' />
+          <input value={this.note} onChange={this.handleChange} type='text' name='note' className="form-new-note" id='note' placeholder='What do think...?' />
           <button className='buttonSaveNote' type="button" onClick={this.saveNote} > Save</button>
         </form>
+        <h1 className='homeTitle'>You can write notes to never forget them</h1>
+        <div className='imageHome'>
+          <img src={('https://media.giphy.com/media/3oz8xTUmZABI3PGwDe/giphy.gif')} alt='pig notes' />
+        </div>
       </div>
     )
   }

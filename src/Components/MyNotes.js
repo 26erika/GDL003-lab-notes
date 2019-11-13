@@ -40,15 +40,17 @@ class MyNotes extends Component {
   render() {
     const { notes } = this.state;
     return (
-      <div className='backgroundNewNote'>
+      <div className='backgroundMyNotes'>
         {notes.map(user => console.log(user) || (
           <div className='note' key={user.uid}>
             <div className='allNotes'>
               <h6>Date: {user.date} Hour: {user.hour}</h6>
-              <input placeholder= {user.title} onChange={(event) => (this.setState({title:event.target.value}))}/>
-              <input placeholder= {user.note} onChange={(event) => (this.setState({note:event.target.value}))}/>
-              <button className='buttonAllNotes' type="button" onClick={() => this.editNote(user.id)} key={user.uid}><i className="material-icons">edit</i></button>
-              <button className='buttonAllNotes' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}><i className="material-icons">delete</i></button>
+              <input placeholder= {user.title} className="form" onChange={(event) => (this.setState({title:event.target.value}))}/>
+              <textarea placeholder= {user.note} className="form" onChange={(event) => (this.setState({note:event.target.value}))}/>
+              <div className='buttonAllNotes'>
+              <button className='buttonAllNotes1' type="button" onClick={() => this.editNote(user.id)} key={user.uid}><i className="material-icons">edit</i></button>
+              <button className='buttonAllNotes2' type="button" onClick={() => this.deleteNote(user.id)} key={user.uid}><i className="material-icons">delete</i></button>
+              </div>
             </div>
           </div>
         ))}
