@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as HashRouter, Route } from "react-router-dom";
 //import fire from './Initializer/Firebase'; 
 import firebase from 'firebase/app';
 import Login from './Components/Login';
@@ -37,11 +37,11 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <HashRouter>
       <Route render={() => (
         (this.state.user) ? (<Route exact path="/" component={Routes} />) : (<Login />)
       )} />
-    </Router>
+    </HashRouter>
     );
   }
 }
