@@ -37,7 +37,7 @@ class App extends Component {
 
   render() {
     return (
-      <HashRouter>
+      <HashRouter basename="/notes">
       <Route render={() => (
         (this.state.user) ? (<Route exact path="/" component={Routes} />) : (<Login />)
       )} />
