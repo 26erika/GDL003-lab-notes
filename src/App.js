@@ -37,11 +37,11 @@ class App extends Component {
 
   render() {
     return (
-      <HashRouter basename="/notes">
-      <Route render={() => (
-        (this.state.user) ? (<Route exact path="/" component={Routes} />) : (<Login />)
-      )} />
-    </HashRouter>
+      <HashRouter basename="/my-notes">
+        <Route render={() => (
+          (this.state.user) ? (<Route exact path="/" component={Routes} />) : (<Login />)
+        )} />
+      </HashRouter>
     );
   }
 }
