@@ -4,7 +4,6 @@ import { BrowserRouter as HashRouter, Route } from "react-router-dom";
 import firebase from 'firebase/app';
 import Login from './Components/Login';
 
-import './Login.css';
 import './App.css';
 import Routes from './Components/Routes';
 

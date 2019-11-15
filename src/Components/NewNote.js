@@ -17,19 +17,23 @@ class NewNote extends Component {
   }
   
   saveNote = () => {
+    let uid= firebase.fire.auth().currentUser.uid;
+  
+      firebase.db.collection("user").add({
+        uid:uid,
+        title: this.state.title,
+        note: this.state.note,
+        date: new Date().toLocaleDateString(), 
+        hour: new Date().toLocaleTimeString(),
+      })
+      this.setState({
+        uid: uid,
+        title: "",
+        note: "",
+        date: new Date().toLocaleDateString(),
+        hour: new Date().toLocaleTimeString(),
+      })
     
-    firebase.db.collection("user").add({
-      title: this.state.title,
-      note: this.state.note,
-      date: new Date().toLocaleDateString(), 
-      hour: new Date().toLocaleTimeString(),
-    })
-    this.setState({
-      title: "",
-      note: "",
-      date: new Date().toLocaleDateString(),
-      hour: new Date().toLocaleTimeString(),
-    })
     this.props.history.push('/my-notes')
   }
 

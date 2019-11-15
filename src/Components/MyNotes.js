@@ -13,11 +13,13 @@ class MyNotes extends Component {
 
   }
   componentDidMount() {
-    firebase.db.collection("user").get()
+    
+      firebase.db.collection("user").get()
       .then(querySnapshot => {
         const data = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
         this.setState({ notes: data })
       })
+    
   }
   deleteNote = (id) => {
     firebase.db.collection("user").doc(id).delete().then((data) => {
